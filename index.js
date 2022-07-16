@@ -1,19 +1,29 @@
 // run `node index.js` in the terminal
 
-function url() {
-  const protocolo = 'https://';
+function url(prot, dom, pat1, pat2, pat3) {
+  const protocolo = prot + '://';
 
-  const dominio = 'auxiliadorapredial';
+  const dominio = dom;
 
-  const path1 = '/alugar';
+  const path1 = '/' + pat1;
 
-  const path2 = '/residencial';
+  const path2 = '/' + pat2;
 
-  const path3 = '/rs+porto-alegre+cidade-baixa';
+  const path3 = '/' + pat3;
 
-  const query = {
-    quartos: 2,
-    semFiadorGarantia: true,
+  const query(var1 , bar2) = {
+    quartos: undefined,
+    semFiadorGarantia: undefined,
   };
+  const formatacaoQuery = '?' + JSON.stringify(query);
+  return protocolo + dominio + path1 + path2 + path3 + formatacaoQuery;
 }
-console.log(url());
+console.log(
+  url(
+    'https',
+    'auxiliadorapredial',
+    'alugar',
+    'residencial',
+    'rs+porto-alegre+cidade-baixa'
+  )
+);
